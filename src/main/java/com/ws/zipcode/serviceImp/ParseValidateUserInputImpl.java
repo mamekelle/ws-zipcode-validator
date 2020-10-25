@@ -1,6 +1,7 @@
 package com.ws.zipcode.serviceImp;
 
 import com.ws.zipcode.domain.ZipcodePair;
+import com.ws.zipcode.exception.ZipCodeException;
 import com.ws.zipcode.service.ParseValidateUserInput;
 import com.ws.zipcode.utilities.Utils;
 import java.util.*;
@@ -8,7 +9,7 @@ import java.util.regex.Matcher;
 
 public class ParseValidateUserInputImpl implements ParseValidateUserInput {
     @Override
-    public Set<ZipcodePair> parseAndValidateUserInput(String[] args) {
+    public Set<ZipcodePair> parseAndValidateUserInput(String[] args) throws ZipCodeException {
         Set<ZipcodePair> zipcodePairSet = new HashSet<>();
         List<String> zipcodePairList = Arrays.asList(args);
         //Sample input for testing purpose

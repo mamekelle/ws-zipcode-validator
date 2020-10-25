@@ -17,7 +17,6 @@ public class ZipcodePair implements Comparable<ZipcodePair> {
     public Integer getMinRange() {
         return minRange;
     }
-
     public Integer getMaxRange() {
         return maxRange;
     }

@@ -1,6 +1,7 @@
 package com.ws.zipcode.service;
 
 import com.ws.zipcode.domain.ZipcodePair;
+import com.ws.zipcode.exception.ZipCodeException;
 import com.ws.zipcode.utilities.Utils;
 
 import java.lang.reflect.Field;
@@ -9,9 +10,9 @@ import java.util.Set;
 import java.util.SortedSet;
 
 public interface ZipCodeService {
-    Set<ZipcodePair> restrictedZipRange(Set<ZipcodePair> inputZipRange) throws IllegalAccessException;
+    Set<ZipcodePair> restrictedZipRange(Set<ZipcodePair> inputZipRange) throws ZipCodeException, IllegalAccessException;
 
-    default SortedSet<ZipcodePair> getOverlappedValidZipcodePairs(SortedSet<ZipcodePair> zipcodePairSortedSet) throws IllegalAccessException {
+    default SortedSet<ZipcodePair> getOverlappedValidZipcodePairs(SortedSet<ZipcodePair> zipcodePairSortedSet) throws ZipCodeException, IllegalAccessException {
         Iterator<ZipcodePair> zipcodePairIterator = zipcodePairSortedSet.iterator();
         ZipcodePair zipRangeHead = null;
 

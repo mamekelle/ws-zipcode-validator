@@ -1,3 +1,4 @@
+import com.ws.zipcode.exception.ZipCodeException;
 import com.ws.zipcode.service.ParseValidateUserInput;
 import com.ws.zipcode.service.ZipCodeService;
 import com.ws.zipcode.serviceImp.ParseValidateUserInputImpl;
@@ -6,7 +7,7 @@ import com.ws.zipcode.serviceImp.ZipCodeServiceImpl;
 
 public class Main {
 
-    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+    public static void main(String[] args) throws ZipCodeException, IllegalAccessException {
         if (args == null || args.length == 0) {
             throw new IllegalArgumentException("Given Zipcode range is empty!");
         }
