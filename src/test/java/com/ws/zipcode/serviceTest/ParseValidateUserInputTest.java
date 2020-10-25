@@ -5,9 +5,7 @@ import com.ws.zipcode.service.ParseValidateUserInput;
 import com.ws.zipcode.serviceImp.ParseValidateUserInputImpl;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.Set;
-
 import static org.junit.Assert.*;
 
 
