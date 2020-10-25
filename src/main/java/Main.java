@@ -1,6 +1,6 @@
-import com.ws.zipcode.service.ParseValidateArg;
+import com.ws.zipcode.service.ParseValidateUserInput;
 import com.ws.zipcode.service.ZipCodeService;
-import com.ws.zipcode.serviceImp.ParseValidateArgImpl;
+import com.ws.zipcode.serviceImp.ParseValidateUserInputImpl;
 import com.ws.zipcode.serviceImp.ZipCodeServiceImpl;
 
 
@@ -10,8 +10,8 @@ public class Main {
         if (args == null || args.length == 0) {
             throw new IllegalArgumentException("Given Zipcode range is empty!");
         }
-        ParseValidateArg parseValidateArg = new ParseValidateArgImpl();
+        ParseValidateUserInput parseValidateArg = new ParseValidateUserInputImpl();
         ZipCodeService zipCodeService = new ZipCodeServiceImpl();
-        zipCodeService.restrictedZipRange(parseValidateArg.parseAndValidate(args)).forEach(System.out::print);
+        zipCodeService.restrictedZipRange(parseValidateArg.parseAndValidateUserInput(args)).forEach(System.out::print);
     }
 }

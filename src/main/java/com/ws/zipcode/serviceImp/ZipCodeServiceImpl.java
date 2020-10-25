@@ -1,13 +1,17 @@
-package zipcode.serviceImp;
+package com.ws.zipcode.serviceImp;
 
-import com.ws.zipcode.domain.Pair;
+import com.ws.zipcode.domain.ZipcodePair;
 import com.ws.zipcode.service.ZipCodeService;
-import zipcode.domain.Pair;
-
-import java.util.List;
+import java.util.*;
 
 public class ZipCodeServiceImpl implements ZipCodeService {
-    public List<Pair> restrictedZipRange(List<Pair> inputZipRange) {
-        return null;
+
+    @Override
+    public Set<ZipcodePair> restrictedZipRange(Set<ZipcodePair> zipcodePairs) throws IllegalAccessException {
+        if (zipcodePairs==null||zipcodePairs.size()==0){
+            //Custom exception class to be added
+            throw new IllegalArgumentException("Invalid set of Zipcode pairs");
+        }
+        return getOverlappedValidZipcodePairs(new TreeSet<>(zipcodePairs));
     }
 }
