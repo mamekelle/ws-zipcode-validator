@@ -12,7 +12,7 @@ import java.util.SortedSet;
 public interface ZipCodeService {
     Set<ZipcodePair> restrictedZipRange(Set<ZipcodePair> inputZipRange) throws ZipCodeException, IllegalAccessException;
 
-    default SortedSet<ZipcodePair> getOverlappedValidZipcodePairs(SortedSet<ZipcodePair> zipcodePairSortedSet) throws ZipCodeException, IllegalAccessException {
+    default SortedSet<ZipcodePair> getOverlappedValidZipcodePairs(SortedSet<ZipcodePair> zipcodePairSortedSet) throws IllegalAccessException {
         Iterator<ZipcodePair> zipcodePairIterator = zipcodePairSortedSet.iterator();
         ZipcodePair zipRangeHead = null;
 

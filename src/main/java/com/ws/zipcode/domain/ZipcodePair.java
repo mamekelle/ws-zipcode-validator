@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
  * Immutable class and expressive code with builder pattern
  */
 public class ZipcodePair implements Comparable<ZipcodePair> {
-    @NotNull(message = "Please insert value")
+    @NotNull(message = "{NotEmpty}")
     private Integer minRange;
     @NotNull(message = "Please insert value")
     private Integer maxRange;

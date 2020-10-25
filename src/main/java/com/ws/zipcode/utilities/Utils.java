@@ -8,9 +8,12 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import java.util.Comparator;
 import java.util.Set;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 public class Utils {
+
+    private final static Logger logger = Logger.getLogger(Utils.class.getName());
 
     public static final Comparator<ZipcodePair> ZIPCODE_PAIR_COMPARATOR=
             Comparator.comparingInt(ZipcodePair::getMinRange).thenComparingInt(ZipcodePair::getMaxRange);
@@ -20,6 +23,7 @@ public class Utils {
     public static void validateZipRange(Object object) {
         Set<ConstraintViolation<Object>> violations = CONSTRAINT_VALIDATOR.validate(object);
         if (violations != null && violations.size() > 0) {
+            logger.severe("Please insert a valid Zipcode!");
             throw new IllegalArgumentException("Invalid zipcode "+ object);
         }
     }
