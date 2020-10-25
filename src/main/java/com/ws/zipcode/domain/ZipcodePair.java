@@ -3,6 +3,8 @@ package com.ws.zipcode.domain;
 import com.ws.zipcode.utilities.Utils;
 import com.ws.zipcode.validation.AbstractBuilder;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -10,8 +12,12 @@ import javax.validation.constraints.NotNull;
  */
 public class ZipcodePair implements Comparable<ZipcodePair> {
     @NotNull(message = "{NotEmpty}")
+    @Min(1)
+    @Max(99999)
     private Integer minRange;
     @NotNull(message = "Please insert value")
+    @Min(1)
+    @Max(99999)
     private Integer maxRange;
 
     public Integer getMinRange() {

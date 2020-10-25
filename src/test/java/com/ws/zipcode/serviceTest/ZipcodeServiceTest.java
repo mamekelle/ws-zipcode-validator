@@ -8,23 +8,20 @@ import static org.junit.Assert.*;
 import com.ws.zipcode.serviceImp.ZipCodeServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Spy;
-
-import javax.inject.Inject;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-public class ServiceTest {
+public class ZipcodeServiceTest {
 
-    @Spy ZipCodeService zipCodeService = new ZipCodeServiceImpl();
-    ZipcodePair zipcodePair;
+    ZipCodeService zipCodeService = new ZipCodeServiceImpl();
     @Before
     public void setUp(){
-        zipcodePair = new ZipcodePair.Builder().withMinRange(12345).withMaxRange(12346).build();
+        zipCodeService = new ZipCodeServiceImpl();
     }
-
+    @Test
+    public void created(){
+        assertNotNull(zipCodeService);
+    }
 
     /**
      * Test to check by passing overlapped 2 object and it returns one by
@@ -33,10 +30,10 @@ public class ServiceTest {
      * @throws IllegalAccessException
      */
     @Test()
-    public void restrictedZipRangeOverlapTest() throws ZipCodeException, IllegalAccessException {
+    public void restrictedZipRangeOverlapTest() throws IllegalAccessException {
         SortedSet<ZipcodePair> zipcodePairSortedSet = new TreeSet<>();
-        zipcodePairSortedSet.add(zipcodePair);
-        zipcodePairSortedSet.add(new ZipcodePair.Builder().withMaxRange(99989).withMinRange(12045).build());
+        zipcodePairSortedSet.add(new ZipcodePair.Builder().withMinRange(12345).withMaxRange(12346).build());
+        zipcodePairSortedSet.add(new ZipcodePair.Builder().withMinRange(12045).withMaxRange(99989).build());
         zipCodeService.getOverlappedValidZipcodePairs(zipcodePairSortedSet);
         assertEquals(zipcodePairSortedSet.size(),1);
     }
@@ -49,17 +46,16 @@ public class ServiceTest {
     @Test()
     public void restrictedZipRangeNoOverlapTest() throws ZipCodeException, IllegalAccessException {
         SortedSet<ZipcodePair> zipcodePairSortedSet = new TreeSet<>();
-        zipcodePairSortedSet.add(zipcodePair);
+        zipcodePairSortedSet.add(new ZipcodePair.Builder().withMinRange(12345).withMaxRange(12346).build());
         zipcodePairSortedSet.add(new ZipcodePair.Builder().withMinRange(12348).withMaxRange(12370).build());
         zipCodeService.getOverlappedValidZipcodePairs(zipcodePairSortedSet);
         assertEquals(zipcodePairSortedSet.size(),2);
     }
 
-    @Test(expected = IllegalAccessException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void restrictedZipRangeIllegalTest() throws IllegalAccessException, ZipCodeException {
         SortedSet<ZipcodePair> zipcodePairSortedSet = new TreeSet<>();
         zipcodePairSortedSet.add(new ZipcodePair.Builder().withMinRange(null).withMaxRange(12370).build());
-        //zipcodePairSortedSet.add(new ZipcodePair.Builder().withMinRange(12348).withMaxRange(12370).build());
         zipCodeService.restrictedZipRange(zipcodePairSortedSet);
         assertEquals(zipcodePairSortedSet.size(),1);
     }
