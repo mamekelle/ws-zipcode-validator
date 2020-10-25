@@ -12,14 +12,14 @@ import java.util.logging.Logger;
  * [12345,23456] [12325,63456] ...[minRange,maxRange] Please insert space separated pairs the filtering on the match
  * expects space separated input
  */
-public class Main {
-    private final static Logger logger = Logger.getLogger(Main.class.getName());
+public class MyMain {
+    private final static Logger logger = Logger.getLogger(MyMain.class.getName());
 
     /**
      *Main method to start the application and accept the args and validate if not valid throws the exceptions
-     * @param args
-     * @throws ZipCodeException
-     * @throws IllegalAccessException
+     * @param args inputs from user
+     * @throws ZipCodeException validate with custom exception
+     * @throws IllegalAccessException validate with built in exception
      */
     public static void main(String[] args) throws ZipCodeException, IllegalAccessException {
         if (args == null || args.length == 0) {

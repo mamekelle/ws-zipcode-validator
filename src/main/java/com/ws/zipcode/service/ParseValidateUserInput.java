@@ -13,9 +13,9 @@ public interface ParseValidateUserInput {
     /**
      * the given args inputs from the user and then returns the distinct pair
      * if it doesn't contain any zip code exceptions
-     * @param args
-     * @return
-     * @throws ZipCodeException
+     * @param args passed from main class user's input
+     * @return return as a set of distinct and valid pairs
+     * @throws ZipCodeException else throws exception
      */
     Set<ZipcodePair> parseAndValidateUserInput(String[] args) throws ZipCodeException;
 }

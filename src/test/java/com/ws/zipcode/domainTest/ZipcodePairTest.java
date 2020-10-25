@@ -2,30 +2,19 @@ package com.ws.zipcode.domainTest;
 
 import com.ws.zipcode.domain.ZipcodePair;
 import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
  * Unit test for ZipcodePair model class
  */
 public class ZipcodePairTest {
-
-    ZipcodePair zipcodePair;
-
-    /**
-     * SetUp method always get executed before each test
-     */
-    @Before
-    public void setup(){
-        zipcodePair = new ZipcodePair.Builder().withMaxRange(67891).withMinRange(12345).build();
-    }
-
     /**
      * Method where we can test if the setup created the instance or not
      */
     @Test
     public void zipcodePairCreated(){
-       assertNotNull(zipcodePair);
+        ZipcodePair zipcodePair = new ZipcodePair.Builder().withMaxRange(67891).withMinRange(12345).build();
+        assertNotNull(zipcodePair);
     }
 
     /**
@@ -33,6 +22,7 @@ public class ZipcodePairTest {
      */
     @Test
     public void zipcodePairCreatedMax(){
+        ZipcodePair zipcodePair = new ZipcodePair.Builder().withMaxRange(67891).withMinRange(12345).build();
         assertTrue(zipcodePair.getMaxRange()==67891);
     }
 
@@ -41,6 +31,7 @@ public class ZipcodePairTest {
      */
     @Test
     public void zipcodePairCreatedMin(){
+        ZipcodePair zipcodePair = new ZipcodePair.Builder().withMaxRange(67891).withMinRange(12345).build();
         assertFalse(zipcodePair.getMaxRange()!=67891);
     }
 

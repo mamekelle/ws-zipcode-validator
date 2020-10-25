@@ -2,7 +2,6 @@ package com.ws.zipcode.domain;
 
 import com.ws.zipcode.utilities.Utils;
 import com.ws.zipcode.validation.AbstractBuilder;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -14,11 +13,11 @@ public class ZipcodePair implements Comparable<ZipcodePair> {
     @NotNull()
     @Min(0)
     @Max(99999)
-    private Integer minRange;
+    private final Integer minRange;
     @NotNull(message = "Null value not allowed")
     @Min(0)
     @Max(99999)
-    private Integer maxRange;
+    private final Integer maxRange;
 
     public Integer getMinRange() {
         return minRange;
@@ -31,8 +30,8 @@ public class ZipcodePair implements Comparable<ZipcodePair> {
      * implementing/overriding the compareTo methods of  Comparable inorder to customize the sorting of the ZipcodePair
      * custom class. Also need to make sure that in the utils class both pairs required to be compared for object consistency
      * Thanks to the functional interface and method reference features of Java 8 we can solve this in couple of lines
-     * @param zipcodePair
-     * @return
+     * @param zipcodePair zipcode input to compare for sorting
+     * @return return -1 if current instance less than, 0 if equal, 1 if greater than
      */
     @Override
     public int compareTo(ZipcodePair zipcodePair) {
@@ -59,7 +58,7 @@ public class ZipcodePair implements Comparable<ZipcodePair> {
 
         /**
          * internal builder pattern build overrides the AbstractBuilder method and creates the object ZipcodePair
-         * @return
+         * @return return factory method or object instance of ZipCodePair
          */
         @Override
         protected ZipcodePair buildInternal() {
@@ -74,7 +73,7 @@ public class ZipcodePair implements Comparable<ZipcodePair> {
 
     /**
      * Constructor with the Builder class
-     * @param builder
+     * @param builder compiled object with min and max range
      */
     private ZipcodePair(Builder builder) {
         this.maxRange = builder.maxRange;
@@ -84,7 +83,7 @@ public class ZipcodePair implements Comparable<ZipcodePair> {
     /**
      * overrides the object classes string method for well formatted and human readable object representation
      * can be used for log processes
-     * @return
+     * @return overrides the object classes string method to match with the expected output
      */
     @Override
     public String toString() {
