@@ -14,11 +14,11 @@ The operations are:
        E.g.2   input: [94133,94133] [94200,94299] [94226,94399]
                output: [94133,94133] [94200,94399]
 
-#Technologies used
+# Technologies used
 Java, Apache Maven, Junit, Log4j, JSR303 validation 
           
 
-#How to run the application
+# How to run the application
 To run the application pass the arguments as follows:
 
         [94133,94133] [94200,94299] [94600,94699]
