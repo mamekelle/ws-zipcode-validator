@@ -1,8 +1,6 @@
 package com.ws.zipcode.utilities;
 
 import com.ws.zipcode.domain.ZipcodePair;
-import com.ws.zipcode.exception.ZipCodeException;
-
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -23,7 +21,7 @@ public class Utils {
     public static void validateZipRange(Object object) {
         Set<ConstraintViolation<Object>> violations = CONSTRAINT_VALIDATOR.validate(object);
         if (violations != null && violations.size() > 0) {
-            logger.severe("Please insert a valid Zipcode!");
+         //   logger.severe("Please insert a valid Zipcode!");
             throw new IllegalArgumentException("Invalid zipcode "+ object);
         }
     }

@@ -13,7 +13,7 @@ import java.util.TreeSet;
 
 public class ZipcodeServiceTest {
 
-    ZipCodeService zipCodeService = new ZipCodeServiceImpl();
+    ZipCodeService zipCodeService;
     @Before
     public void setUp(){
         zipCodeService = new ZipCodeServiceImpl();

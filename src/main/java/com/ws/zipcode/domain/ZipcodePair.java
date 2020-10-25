@@ -11,12 +11,12 @@ import javax.validation.constraints.NotNull;
  * Immutable class and expressive code with builder pattern
  */
 public class ZipcodePair implements Comparable<ZipcodePair> {
-    @NotNull(message = "{NotEmpty}")
-    @Min(1)
+    @NotNull()
+    @Min(0)
     @Max(99999)
     private Integer minRange;
-    @NotNull(message = "Please insert value")
-    @Min(1)
+    @NotNull(message = "Null value not allowed")
+    @Min(0)
     @Max(99999)
     private Integer maxRange;
 
@@ -27,13 +27,22 @@ public class ZipcodePair implements Comparable<ZipcodePair> {
         return maxRange;
     }
 
+    /**
+     * implementing/overriding the compareTo methods of  Comparable inorder to customize the sorting of the ZipcodePair
+     * custom class. Also need to make sure that in the utils class both pairs required to be compared for object consistency
+     * Thanks to the functional interface and method reference features of Java 8 we can solve this in couple of lines
+     * @param zipcodePair
+     * @return
+     */
     @Override
     public int compareTo(ZipcodePair zipcodePair) {
         // I may need to override the hashCode and equals methods of the object calss
         return Utils.ZIPCODE_PAIR_COMPARATOR.compare(this, zipcodePair);
     }
 
-    //Used nested class for Builder design pattern
+    /**
+     * Used nested class for Builder design pattern
+     */
     public static class Builder extends AbstractBuilder<ZipcodePair> {
         private Integer minRange;
         private Integer maxRange;
@@ -48,6 +57,10 @@ public class ZipcodePair implements Comparable<ZipcodePair> {
             return this;
         }
 
+        /**
+         * internal builder pattern build overrides the AbstractBuilder method and creates the object ZipcodePair
+         * @return
+         */
         @Override
         protected ZipcodePair buildInternal() {
             //This part starts early so @Annotation error messages may not get displayed
@@ -59,11 +72,20 @@ public class ZipcodePair implements Comparable<ZipcodePair> {
         }
     }
 
+    /**
+     * Constructor with the Builder class
+     * @param builder
+     */
     private ZipcodePair(Builder builder) {
         this.maxRange = builder.maxRange;
         this.minRange = builder.minRange;
     }
 
+    /**
+     * overrides the object classes string method for well formatted and human readable object representation
+     * can be used for log processes
+     * @return
+     */
     @Override
     public String toString() {
         return "[" + minRange + "," + maxRange + "]";
