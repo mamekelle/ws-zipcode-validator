@@ -31,7 +31,7 @@ public class ParseValidateUserInputImpl implements ParseValidateUserInput {
         }
         Set<ZipcodePair> zipcodePairSet = new HashSet<>();
         for (String zipcodePair : args) {
-            //Assumed space separated input ranges[12345,23456] [34567,45678]
+            //Space separated input ranges[12345,23456] [34567,45678]
             Matcher matcher = Utils.ZIP_BOUNDARY.matcher(zipcodePair.replaceAll(" ", ""));
             if (matcher.find()) {
                 zipcodePairSet.add(new ZipcodePair.Builder()
