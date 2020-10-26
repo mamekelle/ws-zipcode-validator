@@ -3,7 +3,6 @@ package com.ws.zipcode.serviceImp;
 import com.ws.zipcode.domain.ZipcodePair;
 import com.ws.zipcode.exception.ZipCodeException;
 import com.ws.zipcode.service.ZipCodeService;
-
 import java.util.*;
 import java.util.logging.Logger;
 

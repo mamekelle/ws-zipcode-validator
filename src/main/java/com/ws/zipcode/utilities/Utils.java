@@ -26,10 +26,9 @@ public class Utils {
      */
     public static void validateZipRange(Object object) {
         Set<ConstraintViolation<Object>> violations = CONSTRAINT_VALIDATOR.validate(object);
-        if (violations != null && violations.size() > 0) {
+        if ( violations.size() > 0) {
             logger.severe("The given zipcode is not valid");
             throw new IllegalArgumentException("Invalid zipcode "+ object);
         }
     }
-
 }

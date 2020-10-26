@@ -3,6 +3,7 @@ package com.ws.zipcode.domainTest;
 import com.ws.zipcode.domain.ZipcodePair;
 import static org.junit.Assert.*;
 import org.junit.Test;
+import java.util.Optional;
 
 /**
  * Unit test for ZipcodePair model class
@@ -23,7 +24,10 @@ public class ZipcodePairTest {
     @Test
     public void zipcodePairCreatedMax(){
         ZipcodePair zipcodePair = new ZipcodePair.Builder().withMaxRange(67891).withMinRange(12345).build();
-        assertTrue(zipcodePair.getMaxRange()==67891);
+        int temp=0;
+        if(Optional.ofNullable(zipcodePair.getMaxRange()).isPresent())
+            temp= Optional.ofNullable(zipcodePair.getMaxRange()).get();
+        assertEquals(temp,67891);
     }
 
     /**
@@ -32,13 +36,35 @@ public class ZipcodePairTest {
     @Test
     public void zipcodePairCreatedMin(){
         ZipcodePair zipcodePair = new ZipcodePair.Builder().withMaxRange(67891).withMinRange(12345).build();
-        assertFalse(zipcodePair.getMaxRange()!=67891);
+        int temp=0;
+        if(Optional.ofNullable(zipcodePair.getMinRange()).isPresent())
+            temp= Optional.ofNullable(zipcodePair.getMinRange()).get();
+        assertNotEquals(temp,67891);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void zipcodePairCreatedOnlyMaxObject(){
+        new ZipcodePair.Builder().withMaxRange(67891).build();
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void zipcodePairCreatedOnlyMinObject(){
+        new ZipcodePair.Builder().withMinRange(67891).build();
+    }
+
+    @Test(expected = AssertionError.class)
+    public void zipcodePairCreatedNullObject(){
+        assertEquals(null, new ZipcodePair.Builder());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void zipcodePairCreatedNoObject(){
+        new ZipcodePair.Builder().build();
     }
 
     /**
      * Method where we can test if the the Exception is working correctly
      */
-
     @Test(expected = IllegalArgumentException.class)
     public void zipcodePairNullMax(){
         new ZipcodePair.Builder().withMaxRange(null).withMinRange(12345).build();

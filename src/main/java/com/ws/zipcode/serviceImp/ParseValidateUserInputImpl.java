@@ -4,7 +4,6 @@ import com.ws.zipcode.domain.ZipcodePair;
 import com.ws.zipcode.exception.ZipCodeException;
 import com.ws.zipcode.service.ParseValidateUserInput;
 import com.ws.zipcode.utilities.Utils;
-
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;

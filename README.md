@@ -1,12 +1,12 @@
 # ws-zipcode-validator
-Williams Sonoma Backend Challenge for Java Developer
+Williams Sonoma Backend Challenge for Java Developer.
 
 # Introduction
 The project addresses the acceptance of space separated zip code tuples, 
-validations, and merging if exist. So, the size of output<=input.
+validations, and merging if present. So, the size of output<=input.
 The operations are:
 
-      Accept List of paired Zip codes with Minmum and maximum range, validates, 
+      Accept List of paired Zip codes with minmum and maximum range, validate, 
       if there is overlap merge and print. 
       
        E.g.1   input: [94133,94133] [94200,94299] [94600,94699]
@@ -24,8 +24,8 @@ To run the application pass the arguments as follows:
 
         [94133,94133] [94200,94299] [94600,94699]
 
-N.B. Don't forget to separate by space as any argument to pass to main args
-sample image is also present on the repository inside resources/images 
+N.B. Don't forget to separate by space as any argument to pass to main args.
+Sample image is also present on the repository inside resources/images 
 folder. You can also use any of the techniques to pass arguments 
 to the "main" method of Java.
  
