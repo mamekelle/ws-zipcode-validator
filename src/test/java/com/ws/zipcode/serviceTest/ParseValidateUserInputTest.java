@@ -63,9 +63,4 @@ public class ParseValidateUserInputTest {
     public void parseValidateUserInputOnEmptyArgument() throws ZipCodeException {
         parseValidateUserInput.parseAndValidateUserInput(new String[]{});
     }
-
-//    @Test(expected = ZipCodeException.class)
-//    public void parseValidateUserInputOnInvalidArgument() throws ZipCodeException {
-//        parseValidateUserInput.parseAndValidateUserInput(new String[]{"[5678912,6789133]"});
-//    }
 }

@@ -24,7 +24,7 @@ public class ZipCodeServiceImpl implements ZipCodeService {
      */
     @Override
     public Set<ZipcodePair> restrictedZipRange(Set<ZipcodePair> zipcodePairs) throws ZipCodeException, IllegalAccessException {
-        if (zipcodePairs==null||zipcodePairs.size()==0){
+        if (zipcodePairs==null){
             logger.severe("Please check the given Zipcode pairs");
             throw new ZipCodeException("Invalid set of Zipcode pairs");
         }

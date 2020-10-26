@@ -6,9 +6,11 @@ import com.ws.zipcode.service.ZipCodeService;
 import static org.junit.Assert.*;
 
 import com.ws.zipcode.serviceImp.ZipCodeServiceImpl;
+import com.ws.zipcode.utilities.Utils;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.validation.ConstraintViolation;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -77,6 +79,7 @@ public class ZipcodeServiceTest {
     @Test(expected = IllegalArgumentException.class)
     public void zipcodePairMinGreaterMax() throws IllegalAccessException, ZipCodeException {
         SortedSet<ZipcodePair> zipcodePairSortedSet = new TreeSet<>();
+        assertEquals(0,zipcodePairSortedSet.size());
         zipcodePairSortedSet.add(new ZipcodePair.Builder().withMinRange(89898).withMaxRange(12370).build());
         zipcodePairSortedSet.add(new ZipcodePair.Builder().withMinRange(89898).withMaxRange(null).build());
         zipCodeService.restrictedZipRange(zipcodePairSortedSet);
