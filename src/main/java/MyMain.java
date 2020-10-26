@@ -3,7 +3,6 @@ import com.ws.zipcode.service.ParseValidateUserInput;
 import com.ws.zipcode.service.ZipCodeService;
 import com.ws.zipcode.serviceImp.ParseValidateUserInputImpl;
 import com.ws.zipcode.serviceImp.ZipCodeServiceImpl;
-
 import java.util.Arrays;
 import java.util.logging.Logger;
 

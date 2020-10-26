@@ -17,7 +17,7 @@ public abstract class  AbstractBuilder<T> {
     /**
      *
      * @return the object after validation
-     * @throws ConstraintViolationException
+     * @throws ConstraintViolationException throws if any of the bean violation occurs
      */
     public T build() throws ConstraintViolationException {
         T object = buildInternal();

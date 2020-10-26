@@ -3,7 +3,6 @@ package com.ws.zipcode.serviceImp;
 import com.ws.zipcode.domain.ZipcodePair;
 import com.ws.zipcode.exception.ZipCodeException;
 import com.ws.zipcode.service.ZipCodeService;
-
 import java.util.*;
 import java.util.logging.Logger;
 
@@ -17,14 +16,14 @@ public class ZipCodeServiceImpl implements ZipCodeService {
     /**
      * This method checks and accepts the filtered and parsed inputs from the ParseValidateUserInput and returns
      * the result to the main method
-     * @param zipcodePairs
-     * @return
-     * @throws ZipCodeException
-     * @throws IllegalAccessException
+     * @param zipcodePairs input zipcodePairs
+     * @return set of zipcodePairs
+     * @throws ZipCodeException custom exception
+     * @throws IllegalAccessException illegal argument exception
      */
     @Override
     public Set<ZipcodePair> restrictedZipRange(Set<ZipcodePair> zipcodePairs) throws ZipCodeException, IllegalAccessException {
-        if (zipcodePairs==null||zipcodePairs.size()==0){
+        if (zipcodePairs==null){
             logger.severe("Please check the given Zipcode pairs");
             throw new ZipCodeException("Invalid set of Zipcode pairs");
         }

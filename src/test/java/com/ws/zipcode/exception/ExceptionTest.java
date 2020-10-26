@@ -4,9 +4,7 @@ import com.ws.zipcode.domain.ZipcodePair;
 import com.ws.zipcode.service.ParseValidateUserInput;
 import com.ws.zipcode.serviceImp.ParseValidateUserInputImpl;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
-
 import java.util.Set;
 
 public class ExceptionTest {

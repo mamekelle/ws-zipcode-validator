@@ -3,7 +3,6 @@ package com.ws.zipcode.service;
 import com.ws.zipcode.domain.ZipcodePair;
 import com.ws.zipcode.exception.ZipCodeException;
 import com.ws.zipcode.utilities.Utils;
-
 import java.lang.reflect.Field;
 import java.util.Iterator;
 import java.util.Set;
@@ -59,9 +58,9 @@ public interface ZipCodeService {
     /**
      * This method accepts the previous and current ZipcodePair object and it returns true if the current object is inside of the
      * previous else it will return false
-     * @param prevZipRange
-     * @param zipcodePair
-     * @return
+     * @param prevZipRange previous Zip code range to be checked
+     * @param zipcodePair current Zip code range to be checked
+     * @return return true if prevZipRange is inside of
      */
     static boolean isInside(ZipcodePair prevZipRange, ZipcodePair zipcodePair) {
         return (prevZipRange.getMaxRange() >= zipcodePair.getMaxRange());
@@ -70,9 +69,9 @@ public interface ZipCodeService {
     /**
      * This method accepts the previous and current ZipcodePair object and it returns true if there is no intersection
      * between the two objects else it will return false
-     * @param prevZipRange
-     * @param zipcodePair
-     * @return
+     * @param prevZipRange prevZipRange previous Zip code range to be checked
+     * @param zipcodePair  current Zip code range to be checked
+     * @return return true if no intersection else false
      */
     static boolean noIntersection(ZipcodePair prevZipRange, ZipcodePair zipcodePair) {
         return (prevZipRange.getMaxRange() < zipcodePair.getMinRange());

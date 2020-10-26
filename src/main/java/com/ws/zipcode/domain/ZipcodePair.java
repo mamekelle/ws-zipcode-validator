@@ -11,11 +11,11 @@ import javax.validation.constraints.NotNull;
  */
 public class ZipcodePair implements Comparable<ZipcodePair> {
     @NotNull()
-    @Min(0)
+    @Min(1)
     @Max(99999)
     private final Integer minRange;
     @NotNull(message = "Null value not allowed")
-    @Min(0)
+    @Min(1)
     @Max(99999)
     private final Integer maxRange;
 
@@ -35,7 +35,7 @@ public class ZipcodePair implements Comparable<ZipcodePair> {
      */
     @Override
     public int compareTo(ZipcodePair zipcodePair) {
-        // I may need to override the hashCode and equals methods of the object calss
+        // I may need to override the hashCode and equals methods of the object class
         return Utils.ZIPCODE_PAIR_COMPARATOR.compare(this, zipcodePair);
     }
 
