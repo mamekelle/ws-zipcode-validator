@@ -17,10 +17,10 @@ public class ZipCodeServiceImpl implements ZipCodeService {
     /**
      * This method checks and accepts the filtered and parsed inputs from the ParseValidateUserInput and returns
      * the result to the main method
-     * @param zipcodePairs
-     * @return
-     * @throws ZipCodeException
-     * @throws IllegalAccessException
+     * @param zipcodePairs input zipcodePairs
+     * @return set of zipcodePairs
+     * @throws ZipCodeException custom exception
+     * @throws IllegalAccessException illegal argument exception
      */
     @Override
     public Set<ZipcodePair> restrictedZipRange(Set<ZipcodePair> zipcodePairs) throws ZipCodeException, IllegalAccessException {

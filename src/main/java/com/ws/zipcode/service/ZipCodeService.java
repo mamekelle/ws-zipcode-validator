@@ -3,7 +3,6 @@ package com.ws.zipcode.service;
 import com.ws.zipcode.domain.ZipcodePair;
 import com.ws.zipcode.exception.ZipCodeException;
 import com.ws.zipcode.utilities.Utils;
-
 import java.lang.reflect.Field;
 import java.util.Iterator;
 import java.util.Set;

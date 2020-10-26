@@ -4,13 +4,9 @@ import com.ws.zipcode.domain.ZipcodePair;
 import com.ws.zipcode.exception.ZipCodeException;
 import com.ws.zipcode.service.ZipCodeService;
 import static org.junit.Assert.*;
-
 import com.ws.zipcode.serviceImp.ZipCodeServiceImpl;
-import com.ws.zipcode.utilities.Utils;
 import org.junit.Before;
 import org.junit.Test;
-
-import javax.validation.ConstraintViolation;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
