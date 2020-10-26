@@ -24,7 +24,9 @@ To run the application pass the arguments as follows:
 
         [94133,94133] [94200,94299] [94600,94699]
 
-N.B. Don't forget to separate by space as any argument to pass to main args.
+N.B. Don't forget to separate by space as any argument to pass to main args. 
+Don't put unnecessary spaces since the command line assumes it as a separate parameter.
+
 Sample image is also present on the repository inside resources/images 
 folder. You can also use any of the techniques to pass arguments 
 to the "main" method of Java.
